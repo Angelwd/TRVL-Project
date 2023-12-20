@@ -4,7 +4,7 @@ import { TripContext } from "../context/trips.context";
 import TravelForm from "./TravelForm";
 import axios from "axios";
 
-const apiURL = "http://localhost:5005/trips/";
+const apiURL = "https://papayahamster-2.adaptable.app";
 
 const TripDetails = () => {
   const [thisTrip, setThisTrip] = useState(null);
