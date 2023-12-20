@@ -58,7 +58,7 @@ const TripDetails = () => {
 
   return (
     <div className="trip-details">
-      {/* <div className="trip-div">
+      <div className="trip-div">
         <h1>TripDetails</h1>
 
        
@@ -75,7 +75,7 @@ const TripDetails = () => {
         <button onClick={handleDelete}>Delete Trip</button>
       </div>
 
-      {isEditing && <TravelForm buttonText={"Edit Trip"} trip={thisTrip} handleSubmit={handleSubmit}/>} */}
+      {isEditing && <TravelForm buttonText={"Edit Trip"} trip={thisTrip} handleSubmit={handleSubmit}/>}
 
 
 
