@@ -8,6 +8,7 @@ import TravelForm from "./components/TravelForm";
 import MyTrips from "./components/MyTrips";
 import axios from "axios";
 
+
 import { TripContext } from './context/trips.context'
 
 const Home = () => {
@@ -38,18 +39,18 @@ const Home = () => {
  
   }, [trips])
   return (
-    <div className='home'>
+    <div className='home' >
       {/* <Navbar /> */}
       {/* <Sidebar /> */}
       
       <div>
 
-        <h3>All your travel planning starts here...</h3>
+        <h1>TRVL</h1>
         
         {showForm && <TravelForm buttonText={"Add Trip"} handleSubmit={handleSubmit} trip={{destination: "", startDate: "", endDate: "", budget: 0, hotel: "", restaurants: "", activities: ""}}/>}
         
         {!showForm && (
-              <button onClick={() => setShowForm(true)}>Create Trip</button>
+              <button className="btn btn-dark" onClick={() => setShowForm(true)}>Create Trip</button>
             )}
 
       </div>

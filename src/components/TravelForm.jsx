@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useContext, useEffect } from "react";
 import { TripContext } from "../context/trips.context";
+import "bootstrap/dist/css/bootstrap.min.css"
+
 
 const TravelForm = ({ handleSubmit, trip, buttonText }) => {
   const [destination, setDestination] = useState("");
@@ -90,85 +92,78 @@ const TravelForm = ({ handleSubmit, trip, buttonText }) => {
   // };
 
   return (
-    <form onSubmit={formSubmit}>
-      <label>
-        Destination:
-        <input
+    <form  onSubmit={formSubmit}>
+      <label className="form-label">Destination</label>
+        <input className="form-control"
           type="text"
           value={destination}
           onChange={handleDestinationChange}
           required
         />
-      </label>
+      
       <br />
 
-      <label>
-        Start Date:
-        <input
+      <label className="form-label">Start Date</label>
+        <input className="form-control"
           type="date"
           value={startDate}
           onChange={handleStartDateChange}
           required
         />
-      </label>
+      
       <br />
 
-      <label>
-        End Date:
-        <input
+      <label className="form-label">End Date</label>
+        <input className="form-control"
           type="date"
           value={endDate}
           onChange={handleEndDateChange}
           required
         />
-      </label>
+      
       <br />
 
-      <label>
-        Budget:
-        <input
+      <label className="form-label">Budget</label>
+        <input className="form-control"
           type="number"
           value={budget}
           onChange={handleBudgetChange}
           required
         />
-      </label>
+      
       <br />
 
-      <label>
-        Hotel:
-        <input
+      <label className="form-label">Hotel:</label>
+        <input className="form-control"
           type="text"
           value={hotel}
           onChange={handleHotelChange}
           required
         />
-      </label>
+      
       <br />
 
-      <label>
-        Restaurants:
-        <input
+      <label className="form-label">Restaurants</label>
+        <input className="form-control"
           type="text"
           value={restaurants}
           onChange={handleRestaurantsChange}
           required
         />
-      </label>
+      
       <br />
 
-      <label>
-        Activities:
-        <input
+      <label className="form-label">Activities</label>
+        <input className= "form-control"
           type="text"
           value={activities}
           onChange={handleActivitiesChange}
           required
         />
-      </label>
+      
       <br />
 
-      <button type="submit">{buttonText}</button>
+      <button className="btn btn-dark" type="submit">{buttonText}</button>
     </form>
   );
 };
