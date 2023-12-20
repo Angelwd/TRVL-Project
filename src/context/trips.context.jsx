@@ -10,7 +10,7 @@ const TripProvider = ({children}) => {
 
     const getTrips = () => {
         axios
-        .get("https://papayahamster-2.adaptable.app")
+        .get("https://papayahamster-2.adaptable.app/trips")
         .then((response) => {
           setTrips(response.data)
           console.log(response.data) 

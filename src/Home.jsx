@@ -23,7 +23,7 @@ const Home = () => {
   const handleSubmit = async (newTrip) => {
     // e.preventDefault();
     try {
-      await axios.post("https://papayahamster-2.adaptable.app", newTrip)
+      await axios.post("https://papayahamster-2.adaptable.app/trips", newTrip)
       .then(() => {
         getTrips()
         setShowForm(false)

@@ -29,7 +29,7 @@ const TripDetails = () => {
   const handleDelete = async () => {
     try {
 
-      let response = await axios.delete(`${apiURL}${thisTrip.id}`);
+      let response = await axios.delete(`${apiURL}/trips/${thisTrip.id}`);
       console.log("Deleted trip==>", response.data)
       getTrips()
       navigate('/')
@@ -44,7 +44,7 @@ const TripDetails = () => {
   }
 
   const handleSubmit = (editedTrip) => {
-    axios.put(`${apiURL}${thisTrip.id}`, editedTrip)
+    axios.put(`${apiURL}/trips/${thisTrip.id}`, editedTrip)
       .then((response) => {
         console.log("Edited Trip ===>", response.data)
         setThisTrip(response.data)
