@@ -1,25 +1,37 @@
 .App {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 98vw;
-  height: 99vh
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh
 }
 
 .home {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 78vw;
-  background-image: url("./Images/redwoods.jpeg");
+  justify-content: center;
+  align-items: center;
+  width: 85vw;
+  background-image: url("./Images/pierbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white
   
 }
 
 .trip-details {
-  width: 78vw;
+  width: 85vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  background-image: url("./Images/pierbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  /* height: fit-content */
 }
 
 .trip-div{
@@ -31,6 +43,56 @@
   width: 300px;
   border: 1px solid black;
 }
+
+.mytrips {
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./Images/pierbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:white
+}
+
+.trips-container {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.card-body {
+  min-width: 15vw;
+  /* max-height: 40px */
+}
+
+.details-card {
+  height: fit-content;
+}
+
+.about {
+  width: 86vw;
+  background-image: url("./Images/pierbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:white
+}
+
+/* .slogan{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+ */
 
 
 

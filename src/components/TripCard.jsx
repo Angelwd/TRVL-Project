@@ -18,7 +18,7 @@ const TripCard = (props) => {
           {" "}
           {props.startDate} {props.endDate}
         </h6>
-        <Link to={`/trip-details/${props.id}`} className="btn btn-primary">View Details</Link>
+        <Link to={`/trip-details/${props.id}`} className="btn btn-dark">View Details</Link>
         {/* <a href="#" className="btn btn-primary">
           View Details
         </a> */}

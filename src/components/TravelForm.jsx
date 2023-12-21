@@ -163,7 +163,7 @@ const TravelForm = ({ handleSubmit, trip, buttonText }) => {
       
       <br />
 
-      <button className="btn btn-dark" type="submit">{buttonText}</button>
+      <button className="btn btn-light" type="submit">{buttonText}</button>
     </form>
   );
 };

@@ -8,13 +8,13 @@ const apiURL = "https://papayahamster-2.adaptable.app";
 
 const TripDetails = () => {
   const [thisTrip, setThisTrip] = useState(null);
-  const [isEditing, setIsEditing] = useState(false)
+  const [isEditing, setIsEditing] = useState(false);
 
   const { trips, getTrips } = useContext(TripContext);
 
   const { tripId } = useParams();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (trips.length) {
@@ -28,37 +28,36 @@ const TripDetails = () => {
 
   const handleDelete = async () => {
     try {
-
       let response = await axios.delete(`${apiURL}/trips/${thisTrip.id}`);
-      console.log("Deleted trip==>", response.data)
-      getTrips()
-      navigate('/')
-      
+      console.log("Deleted trip==>", response.data);
+      getTrips();
+      navigate("/");
     } catch (error) {
       console.error("Error deleting trip:", error);
     }
   };
 
   const toggleEdit = () => {
-    setIsEditing(!isEditing)
-  }
+    setIsEditing(!isEditing);
+  };
 
   const handleSubmit = (editedTrip) => {
-    axios.put(`${apiURL}/trips/${thisTrip.id}`, editedTrip)
+    axios
+      .put(`${apiURL}/trips/${thisTrip.id}`, editedTrip)
       .then((response) => {
-        console.log("Edited Trip ===>", response.data)
-        setThisTrip(response.data)
-        getTrips()
-        setIsEditing(false)
+        console.log("Edited Trip ===>", response.data);
+        setThisTrip(response.data);
+        getTrips();
+        setIsEditing(false);
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }
+        console.log(err);
+      });
+  };
 
   return (
     <div className="trip-details">
-      <div className="trip-div">
+      {/* <div className="trip-div">
         <h1>TripDetails</h1>
 
        
@@ -69,38 +68,52 @@ const TripDetails = () => {
         <h3>{thisTrip && thisTrip.budget}</h3>
         <h3>{thisTrip && thisTrip.hotel}</h3>
         <h3>{thisTrip && thisTrip.restaurants}</h3>
-        <h3>{thisTrip && thisTrip.activities}</h3>
+        <h3>{thisTrip && thisTrip.activities}</h3> */}
 
-        <button onClick={toggleEdit}>Edit Trip</button>
-        <button onClick={handleDelete}>Delete Trip</button>
+      {/* <button onClick={toggleEdit}>Edit Trip</button> */}
+      {/* <button onClick={handleDelete}>Delete Trip</button> */}
+      {/* </div> */}
+
+      {/* {isEditing && <TravelForm buttonText={"Edit Trip"} trip={thisTrip} handleSubmit={handleSubmit}/>} */}
+
+      <div className="details-card">
+
+        <div className="card shadow-sm">
+          <div className="card-header">
+            <h3 className="card-title">{thisTrip && thisTrip.destination}</h3>
+            <div className="card-toolbar">
+              <button
+                onClick={toggleEdit}
+                type="button"
+                className="btn btn-sm btn-info"
+              >
+                Edit Trip
+              </button>
+            </div>
+          </div>
+          <div className="card-body">
+            <h5>Start</h5> <p>{thisTrip && thisTrip.startDate}</p>
+            <h5>End</h5> <p>{thisTrip && thisTrip.startDate}</p>
+            <h5>Budget</h5> <p>{thisTrip && thisTrip.budget}</p>
+            <h5>Hotel</h5> <p>{thisTrip && thisTrip.hotel}</p>
+            <h5>Restaurant</h5> <p>{thisTrip && thisTrip.restaurants}</p>
+            <h5>Activities</h5> <p>{thisTrip && thisTrip.activities}</p>
+          </div>
+          <div className="card-footer">
+            <button onClick={handleDelete} type="button" className="btn btn-danger">Delete Trip</button>
+          </div>
+        </div>
+
       </div>
 
-      {isEditing && <TravelForm buttonText={"Edit Trip"} trip={thisTrip} handleSubmit={handleSubmit}/>}
 
-
-
-    ///////////////////
-
-    <div className="modal" tabindex="-1">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title">Modal title</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    
+      {isEditing && (
+        <TravelForm
+          buttonText={"Edit Trip"}
+          trip={thisTrip}
+          handleSubmit={handleSubmit}
+        />
+      )}
     </div>
   );
 };
